@@ -32,6 +32,7 @@ $(STAMP):
 	mkdir -p $(BUILD_DIR) && touch $@
 
 clone:
+	mkdir -p $(DIST_DIR)
 	tar cv $(ELTON_DATA_DIR)/$(ELTON_PACKAGE) | gzip > $(DIST_DIR)/elton-datasets.tar.gz
 	cat $(DIST_DIR)/elton-datasets.tar.gz | sha256sum | tr -d ' ' | tr -d '-' > $(DIST_DIR)/elton-datasets.tar.gz.sha256
 
