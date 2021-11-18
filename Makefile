@@ -44,7 +44,7 @@ update: clone $(ELTON_JAR)
 	echo -e "\nIncluded datasets:\n" >> $(DIST_DIR)/README
 	cat $(DIST_DIR)/elton-datasets.tsv | tail -n+2 >> $(DIST_DIR)/README
 	echo -e "\nAssociated content ids:\n" >> $(DIST_DIR)/README
-	cat elton-datasets.tsv | cut -f5 | tail -n+2 | sed 's+^+hash://sha256/+g' >> $(DIST_DIR)/README
+	cat $(DIST_DIR)/elton-datasets.tsv | cut -f5 | tail -n+2 | sed 's+^+hash://sha256/+g' >> $(DIST_DIR)/README
 
 
 $(ELTON_JAR): $(STAMP)
