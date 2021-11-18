@@ -11,9 +11,11 @@ ELTON:=java -jar $(ELTON_JAR)
 
 ELTON_DATA_DIR:=/var/cache/elton/datasets
 
+ELTON_PACKAGE:=globalbioticinteractions/template-dataset
+
 ZENODO_UPLOAD_URL:=https://raw.githubusercontent.com/jhpoelen/zenodo-upload/master/zenodo_upload.sh
 ZENODO_UPLOAD:=$(BUILD_DIR)/zenodo_upload.sh
-ZENODO_DEPOSIT:=5639794
+ZENODO_DEPOSIT:=5711304
 
 DIST_DIR:=$(PWD)/dist
 
