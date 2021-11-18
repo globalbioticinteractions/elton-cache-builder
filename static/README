@@ -1,0 +1,48 @@
+Global Biotic Interactions: Elton Dataset Cache
+
+The intended use of this archive/cache is to allow for offline-enabled access versions of existing species interaction datasets. The program "Elton" (https://doi.org/10.5281/zenodo.998263) was used to populate the content of elton-datasets.tar.gz . The same program can be used to extract information from the cache archive also. Global Biotic Interactions (https://globalbioticinteractions.org, https://doi.org/10.1016/j.ecoinf.2014.08.005) also uses these archives to create derived species interaction data archives, search indexes and APIs. 
+
+Please note that due to size considerations, offline-enabled access to an elton dataset cache of iNaturalist interaction data has been excluded from this publications and moved into a separate Zenodo publication at https://doi.org/10.5281/zenodo.3950546 .
+
+Contents
+--------
+
+README:
+this file
+
+elton-datasets.tar.gz:
+versioned archive with species interaction datasets
+
+elton-datasets.tar.sha256:
+content signature of elton-datasets.tar
+
+elton-datasets.tsv:
+list of included datasets
+
+elton.jar:
+commandline program to help access the species interaction datasets
+
+Usage
+-----
+
+To install, extract elton-datasets.tar.gz into a directory of choice using:
+
+tar xfz elton-dataset.tar.gz
+
+To use, download elton.jar included this publication and execute the following to get a list of available datasets:
+
+java -Xmx4G -jar elton.jar datasets
+
+on a system that has java v8+ installed.
+
+If all goes well, you should be able to regenerate the included file elton-dataset.tsv . 
+
+For more information on how to use elton.jar, execute:
+
+java -jar elton.jar usage
+
+or visit https://github.com/globalbioticinteractions/elton for more available commands.
+
+Alternatively, without using Elton, you can access the data by inspecting the access.tsv files in the various directories of the datasets directory.
+
+When using these datasets in a publication or product, please cite the *original* data providers and publications. You can find the citations in the data.
