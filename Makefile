@@ -33,7 +33,7 @@ $(STAMP):
 
 clone:
 	mkdir -p $(DIST_DIR)
-	cd $(ELTON_DATA_DIR) && cd .. && tar cv datasets/$(ELTON_PACKAGE) | gzip > $(DIST_DIR)/elton-datasets.tar.gz
+	cd $(ELTON_DATA_DIR) && cd .. && tar c datasets/$(ELTON_PACKAGE) | gzip > $(DIST_DIR)/elton-datasets.tar.gz
 	cat $(DIST_DIR)/elton-datasets.tar.gz | sha256sum | tr -d ' ' | tr -d '-' > $(DIST_DIR)/elton-datasets.tar.gz.sha256
 
 update: clone $(ELTON_JAR)
