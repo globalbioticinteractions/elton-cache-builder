@@ -13,6 +13,9 @@ ELTON_DATA_DIR:=/var/cache/elton/datasets
 
 ELTON_PACKAGE:=globalbioticinteractions/template-dataset
 
+PACKAGE_DIRS:=$(shell echo $(ELTON_PACKAGE) | sed 's+[ ]+ datasets/+g' | sed 's+^+datasets/+g')
+
+
 ZENODO_UPLOAD_URL:=https://raw.githubusercontent.com/jhpoelen/zenodo-upload/master/zenodo_upload.sh
 ZENODO_UPLOAD:=$(BUILD_DIR)/zenodo_upload.sh
 ZENODO_DEPOSIT:=5711304
@@ -33,7 +36,8 @@ $(STAMP):
 
 clone:
 	mkdir -p $(DIST_DIR)
-	cd $(ELTON_DATA_DIR) && cd .. && tar c datasets/$(ELTON_PACKAGE) | gzip > $(DIST_DIR)/elton-datasets.tar.gz
+	echo $(PACKAGE_DIRS)
+	cd $(ELTON_DATA_DIR) && cd .. && tar c $(PACKAGE_DIRS) | gzip > $(DIST_DIR)/elton-datasets.tar.gz
 	cat $(DIST_DIR)/elton-datasets.tar.gz | sha256sum | tr -d ' ' | tr -d '-' > $(DIST_DIR)/elton-datasets.tar.gz.sha256
 
 update: clone $(ELTON_JAR)

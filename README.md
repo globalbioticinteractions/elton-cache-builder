@@ -15,5 +15,12 @@ Prepares elton datasets for publication on Zenodo.
 
 Run:
 ```
-make
+make ELTON_PACKAGE=[some elton package name] ZENODO_DEPOSIT=[some unpublished zenodo deposit id] 
 ```
+
+example:
+
+```
+make ELTON_PACKAGE=globalbioticinteractions/msb-para ZENODO_DEPOSIT=5711446
+```
+
